@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bildirim Tercihleri</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#13ec5b",
+            "background-light": "#f6f8f6",
+            "background-dark": "#102216",
+          },
+          fontFamily: {
+            "display": ["Manrope", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-10 flex items-center justify-between bg-background-light/80 p-4 pb-3 backdrop-blur-sm dark:bg-background-dark/80">
+<button class="flex size-10 items-center justify-center rounded-full text-zinc-900 dark:text-white">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="flex-1 text-center text-lg font-bold leading-tight tracking-tight text-zinc-900 dark:text-white">Bildirim Tercihleri</h1>
+<div class="size-10"></div>
+</header>
+<main class="flex-1 px-4 pb-24">
+<!-- General Notifications Section -->
+<div class="flex items-center justify-between rounded-xl bg-white p-4 dark:bg-[#1A3122]">
+<div class="flex items-center gap-4">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+<p class="text-base font-medium text-zinc-900 dark:text-white">Tüm Bildirimler</p>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full bg-zinc-200 p-0.5 transition-colors has-[:checked]:bg-primary dark:bg-[#23482f]">
+<input checked="" class="peer invisible absolute" type="checkbox"/>
+<div class="h-full w-[27px] rounded-full bg-white transition-transform peer-checked:translate-x-[20px]"></div>
+</label>
+</div>
+</div>
+<!-- Budget Alerts Section -->
+<section class="mt-6">
+<h2 class="px-2 pb-2 text-lg font-bold leading-tight tracking-tight text-zinc-900 dark:text-white">Bütçe Uyarıları</h2>
+<div class="flex flex-col gap-px overflow-hidden rounded-xl bg-zinc-200 dark:bg-[#1A3122]/50">
+<div class="flex items-center justify-between gap-4 bg-white p-4 dark:bg-[#1A3122]">
+<div class="flex items-center gap-4">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-medium leading-normal text-zinc-900 dark:text-white">Bütçe Aşıldığında</p>
+<p class="text-sm font-normal leading-normal text-zinc-500 dark:text-[#92c9a4]">Bütçenizi aştığınızda bildirim gönderilir</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full bg-zinc-200 p-0.5 transition-colors has-[:checked]:bg-primary dark:bg-[#23482f]">
+<input checked="" class="peer invisible absolute" type="checkbox"/>
+<div class="h-full w-[27px] rounded-full bg-white transition-transform peer-checked:translate-x-[20px]"></div>
+</label>
+</div>
+</div>
+<div class="flex flex-col gap-2 bg-white p-4 dark:bg-[#1A3122]">
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined">pie_chart</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-medium leading-normal text-zinc-900 dark:text-white">Bütçeye Yaklaşınca</p>
+<p class="text-sm font-normal leading-normal text-zinc-500 dark:text-[#92c9a4]">Bütçeniz dolmaya yaklaştığında uyarır</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full bg-zinc-200 p-0.5 transition-colors has-[:checked]:bg-primary dark:bg-[#23482f]">
+<input class="peer invisible absolute" type="checkbox"/>
+<div class="h-full w-[27px] rounded-full bg-white transition-transform peer-checked:translate-x-[20px]"></div>
+</label>
+</div>
+</div>
+<div class="pl-14 pt-2 opacity-50">
+<label class="mb-2 block text-sm font-medium text-zinc-600 dark:text-zinc-400" for="threshold">Uyarı Eşiği: %80</label>
+<input class="h-2 w-full cursor-not-allowed appearance-none rounded-full bg-zinc-200 accent-primary dark:bg-[#23482f]" disabled="" id="threshold" max="95" min="50" step="5" type="range" value="80"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Financial Goals Section -->
+<section class="mt-6">
+<h2 class="px-2 pb-2 text-lg font-bold leading-tight tracking-tight text-zinc-900 dark:text-white">Finansal Hedefler</h2>
+<div class="flex flex-col gap-px overflow-hidden rounded-xl bg-zinc-200 dark:bg-[#1A3122]/50">
+<div class="flex items-center justify-between gap-4 bg-white p-4 dark:bg-[#1A3122]">
+<div class="flex items-center gap-4">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined">flag</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-medium leading-normal text-zinc-900 dark:text-white">Hedefe Ulaşınca</p>
+<p class="text-sm font-normal leading-normal text-zinc-500 dark:text-[#92c9a4]">Bir hedefinizi tamamladığınızda kutlayın</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full bg-zinc-200 p-0.5 transition-colors has-[:checked]:bg-primary dark:bg-[#23482f]">
+<input checked="" class="peer invisible absolute" type="checkbox"/>
+<div class="h-full w-[27px] rounded-full bg-white transition-transform peer-checked:translate-x-[20px]"></div>
+</label>
+</div>
+</div>
+<div class="flex items-center justify-between gap-4 bg-white p-4 dark:bg-[#1A3122]">
+<div class="flex items-center gap-4">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-medium leading-normal text-zinc-900 dark:text-white">Ara Bildirimler</p>
+<p class="text-sm font-normal leading-normal text-zinc-500 dark:text-[#92c9a4]">Hedefinize yaklaşırken sizi motive eder</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full bg-zinc-200 p-0.5 transition-colors has-[:checked]:bg-primary dark:bg-[#23482f]">
+<input class="peer invisible absolute" type="checkbox"/>
+<div class="h-full w-[27px] rounded-full bg-white transition-transform peer-checked:translate-x-[20px]"></div>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Delivery Method Section -->
+<section class="mt-6">
+<h2 class="px-2 pb-2 text-lg font-bold leading-tight tracking-tight text-zinc-900 dark:text-white">Bildirim Kanalı ve Sıklığı</h2>
+<div class="space-y-4 rounded-xl bg-white p-4 dark:bg-[#1A3122]">
+<div>
+<h3 class="mb-2 text-base font-medium text-zinc-900 dark:text-white">Bildirim Türü</h3>
+<div class="flex gap-3">
+<div class="flex-1">
+<input checked="" class="peer hidden" id="push" name="notification_type" type="checkbox"/>
+<label class="block w-full cursor-pointer rounded-lg border border-zinc-200 bg-white p-3 text-center text-sm font-medium text-zinc-700 peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary dark:border-[#23482f] dark:bg-transparent dark:text-zinc-300 dark:peer-checked:border-primary dark:peer-checked:bg-primary/20" for="push">Push Bildirimi</label>
+</div>
+<div class="flex-1">
+<input class="peer hidden" id="email" name="notification_type" type="checkbox"/>
+<label class="block w-full cursor-pointer rounded-lg border border-zinc-200 bg-white p-3 text-center text-sm font-medium text-zinc-700 peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary dark:border-[#23482f] dark:bg-transparent dark:text-zinc-300 dark:peer-checked:border-primary dark:peer-checked:bg-primary/20" for="email">E-posta</label>
+</div>
+</div>
+</div>
+<div>
+<h3 class="mb-2 text-base font-medium text-zinc-900 dark:text-white">Bildirim Sıklığı</h3>
+<div class="flex gap-2 rounded-lg bg-zinc-100 p-1 dark:bg-[#102216]">
+<div class="flex-1">
+<input checked="" class="peer hidden" id="instant" name="frequency" type="radio"/>
+<label class="block w-full cursor-pointer rounded-md p-2 text-center text-sm font-medium text-zinc-600 peer-checked:bg-white peer-checked:text-zinc-900 peer-checked:shadow-sm dark:text-zinc-400 dark:peer-checked:bg-[#23482f] dark:peer-checked:text-white" for="instant">Anlık</label>
+</div>
+<div class="flex-1">
+<input class="peer hidden" id="daily" name="frequency" type="radio"/>
+<label class="block w-full cursor-pointer rounded-md p-2 text-center text-sm font-medium text-zinc-600 peer-checked:bg-white peer-checked:text-zinc-900 peer-checked:shadow-sm dark:text-zinc-400 dark:peer-checked:bg-[#23482f] dark:peer-checked:text-white" for="daily">Günlük</label>
+</div>
+<div class="flex-1">
+<input class="peer hidden" id="weekly" name="frequency" type="radio"/>
+<label class="block w-full cursor-pointer rounded-md p-2 text-center text-sm font-medium text-zinc-600 peer-checked:bg-white peer-checked:text-zinc-900 peer-checked:shadow-sm dark:text-zinc-400 dark:peer-checked:bg-[#23482f] dark:peer-checked:text-white" for="weekly">Haftalık</label>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Save Button -->
+<footer class="fixed bottom-0 left-0 w-full bg-gradient-to-t from-background-light to-transparent p-4 pb-6 dark:from-background-dark">
+<button class="w-full rounded-xl bg-primary py-4 text-center text-base font-bold text-zinc-900">Değişiklikleri Kaydet</button>
+</footer>
+</div>
+</body></html>

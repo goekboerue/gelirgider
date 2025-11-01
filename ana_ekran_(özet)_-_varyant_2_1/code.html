@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Genel Bakış - Finans Uygulaması</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2ECC71", // Yeşil (Gelir)
+                        "secondary": "#E74C3C", // Kırmızı/Turuncu (Gider)
+                        "accent": "#3498DB", // Mavi (Vurgu)
+                        "background-light": "#F4F6F9",
+                        "background-dark": "#102216",
+                        "text-light": "#34495E",
+                        "text-dark": "#F4F6F9",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1A2C21",
+                        "border-light": "#E0E0E0",
+                        "border-dark": "#34495E"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+        .modal-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay:target {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-sheet {
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay:target .modal-sheet {
+            transform: translateY(0);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative min-h-screen w-full flex-col">
+<div class="flex items-center p-4 pb-2 bg-background-light dark:bg-background-dark sticky top-0 z-10">
+<div class="flex size-12 shrink-0 items-center justify-start">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Kullanıcı profil resmi" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwbnyPwdewNDhjqlPz3CDyV_RV3o6y23_JJn8O9EfXfDryGGLVrFJ8okuxCWOwoJpfoP-AXroX--tigASjKGHoa4mTXNZp9B8o-IMjs1aCvzC9qzHUM2AhPgRpcuSIQpcmOy0DnpXOdt3AgWzh2wXP7PbAC4TKEQHurAK9zdyjVrfAR99UslcaJc0lWbFZjXOWAiIdGKHCUfo2knrHXU79RUAtfMgYoqSNXq_QOUmuk4Sp0oinSFA_tBDvYv0JrvQCZoKl0Dab-dDe");'></div>
+</div>
+<h2 class="text-text-light dark:text-text-dark text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Ağustos 2024</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full size-12 bg-transparent text-text-light dark:text-text-dark gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</div>
+<main class="p-4 flex flex-col gap-6">
+<div class="flex flex-col items-center justify-center text-center p-6">
+<p class="text-text-light/70 dark:text-text-dark/70 text-base font-normal leading-normal">Toplam Bakiye</p>
+<h1 class="text-text-light dark:text-text-dark tracking-light text-[32px] font-bold leading-tight">₺2.500</h1>
+<p class="text-primary text-sm font-medium">Bütçe Fazlası</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<a class="flex flex-col gap-4 rounded-xl p-4 bg-card-light dark:bg-card-dark cursor-pointer transition-all hover:shadow-lg" href="#">
+<div class="flex items-center gap-2">
+<div class="rounded-full bg-primary/20 p-1.5">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">arrow_downward</span>
+</div>
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">Gelir</p>
+</div>
+<div class="flex items-center justify-center">
+<div class="relative w-28 h-28">
+<svg class="w-full h-full" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#27AE60" stroke-width="10" style="stroke-dasharray: 282.6; stroke-dashoffset: 84.78;" transform="rotate(-90 50 50)"></circle>
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#2ECC71" stroke-width="10" style="stroke-dasharray: 282.6; stroke-dashoffset: 197.82;" transform="rotate(126 50 50)"></circle>
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#82E0AA" stroke-width="10" style="stroke-dasharray: 282.6; stroke-dashoffset: 254.34;" transform="rotate(234 50 50)"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<p class="text-text-light dark:text-text-dark tracking-light text-lg font-bold leading-tight">₺12.500</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 text-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#27AE60]"></span><span class="text-text-light/80 dark:text-text-dark/80">Maaş</span></div>
+<span>₺9.000</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#2ECC71]"></span><span class="text-text-light/80 dark:text-text-dark/80">Serbest</span></div>
+<span>₺2.500</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#82E0AA]"></span><span class="text-text-light/80 dark:text-text-dark/80">Diğer</span></div>
+<span>₺1.000</span>
+</div>
+</div>
+</a>
+<div class="flex flex-col gap-4 rounded-xl p-4 bg-card-light dark:bg-card-dark">
+<div class="flex items-center gap-2">
+<div class="rounded-full bg-secondary/20 p-1.5">
+<span class="material-symbols-outlined text-secondary" style="font-size: 20px;">arrow_upward</span>
+</div>
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">Gider</p>
+</div>
+<div class="flex items-center justify-center">
+<div class="relative w-28 h-28">
+<svg class="w-full h-full" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#C0392B" stroke-width="10" style="stroke-dasharray: 282.6; stroke-dashoffset: 141.3;" transform="rotate(-90 50 50)"></circle>
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#E74C3C" stroke-width="10" style="stroke-dasharray: 282.6; stroke-dashoffset: 211.95;" transform="rotate(90 50 50)"></circle>
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#F1948A" stroke-width="10" style="stroke-dasharray: 282.6; stroke-dashoffset: 254.34;" transform="rotate(180 50 50)"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<p class="text-text-light dark:text-text-dark tracking-light text-lg font-bold leading-tight">₺10.000</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 text-xs">
+<a class="flex items-center justify-between cursor-pointer hover:bg-background-light dark:hover:bg-background-dark p-1 rounded" href="#category-details-rent">
+<div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#C0392B]"></span><span class="text-text-light/80 dark:text-text-dark/80">Kira</span></div>
+<span>₺5.000</span>
+</a>
+<a class="flex items-center justify-between cursor-pointer hover:bg-background-light dark:hover:bg-background-dark p-1 rounded" href="#category-details-bills">
+<div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#E74C3C]"></span><span class="text-text-light/80 dark:text-text-dark/80">Fatura</span></div>
+<span>₺2.500</span>
+</a>
+<a class="flex items-center justify-between cursor-pointer hover:bg-background-light dark:hover:bg-background-dark p-1 rounded" href="#category-details-market">
+<div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#F1948A]"></span><span class="text-text-light/80 dark:text-text-dark/80">Market</span></div>
+<span>₺2.500</span>
+</a>
+</div>
+</div>
+</div>
+<div class="col-span-2 flex flex-col gap-2 rounded-xl p-4 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="rounded-full bg-accent/20 p-1.5">
+<span class="material-symbols-outlined text-accent" style="font-size: 20px;">credit_card</span>
+</div>
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">Kredi Kartı Borcu</p>
+</div>
+<span class="text-secondary text-sm font-medium leading-normal">Son Ödeme: 28 Ağu</span>
+</div>
+<p class="text-text-light dark:text-text-dark tracking-light text-2xl font-bold leading-tight">₺3.250</p>
+</div>
+<div class="flex flex-col gap-4 rounded-xl p-4 bg-card-light dark:bg-card-dark">
+<h3 class="text-text-light dark:text-text-dark text-lg font-bold">Hızlı İşlemler</h3>
+<div class="grid grid-cols-4 gap-4 text-center">
+<a class="flex flex-col items-center gap-2 text-text-light/80 dark:text-text-dark/80" href="#">
+<div class="flex items-center justify-center w-12 h-12 rounded-full bg-background-light dark:bg-background-dark">
+<span class="material-symbols-outlined text-accent">receipt_long</span>
+</div>
+<span class="text-xs font-medium">Fatura Öde</span>
+</a>
+<a class="flex flex-col items-center gap-2 text-text-light/80 dark:text-text-dark/80" href="#">
+<div class="flex items-center justify-center w-12 h-12 rounded-full bg-background-light dark:bg-background-dark">
+<span class="material-symbols-outlined text-accent">swap_horiz</span>
+</div>
+<span class="text-xs font-medium">Transfer</span>
+</a>
+<a class="flex flex-col items-center gap-2 text-text-light/80 dark:text-text-dark/80" href="#">
+<div class="flex items-center justify-center w-12 h-12 rounded-full bg-background-light dark:bg-background-dark">
+<span class="material-symbols-outlined text-accent">analytics</span>
+</div>
+<span class="text-xs font-medium">Raporlar</span>
+</a>
+<a class="flex flex-col items-center gap-2 text-text-light/80 dark:text-text-dark/80" href="#">
+<div class="flex items-center justify-center w-12 h-12 rounded-full bg-background-light dark:bg-background-dark">
+<span class="material-symbols-outlined text-accent">more_horiz</span>
+</div>
+<span class="text-xs font-medium">Daha Fazla</span>
+</a>
+</div>
+</div>
+</main>
+<div class="fixed bottom-6 right-6 z-20">
+<div class="relative group">
+<div class="absolute bottom-full mb-3 right-0 flex-col items-center gap-3 hidden group-hover:flex">
+<button class="flex items-center gap-2 bg-card-light dark:bg-card-dark text-text-light dark:text-text-dark px-4 py-2 rounded-lg shadow-lg">
+<span>Gider Ekle</span>
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-secondary">
+<span class="material-symbols-outlined text-white" style="font-size: 20px;">remove</span>
+</div>
+</button>
+<button class="flex items-center gap-2 bg-card-light dark:bg-card-dark text-text-light dark:text-text-dark px-4 py-2 rounded-lg shadow-lg">
+<span>Gelir Ekle</span>
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-primary">
+<span class="material-symbols-outlined text-white" style="font-size: 20px;">add</span>
+</div>
+</button>
+</div>
+<button class="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined !text-4xl">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="modal-overlay fixed inset-0 z-50 flex items-end justify-center bg-black/60" id="category-details-rent">
+<a class="absolute inset-0" href="#"></a>
+<div class="modal-sheet relative w-full max-w-md bg-card-light dark:bg-card-dark rounded-t-xl max-h-[85vh] overflow-y-auto">
+<div class="sticky top-0 bg-card-light dark:bg-card-dark pt-4 px-4 z-10">
+<div class="w-12 h-1.5 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-4"></div>
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-secondary/20">
+<span class="material-symbols-outlined text-secondary">house</span>
+</div>
+<h2 class="text-xl font-bold text-text-light dark:text-text-dark">Kira Harcamaları</h2>
+</div>
+<a class="text-text-light dark:text-text-dark" href="#"><span class="material-symbols-outlined">close</span></a>
+</div>
+<div class="border-b border-border-light dark:border-border-dark"></div>
+</div>
+<div class="p-4 flex flex-col gap-6">
+<div class="grid grid-cols-2 gap-4 text-center">
+<div class="p-4 bg-background-light dark:bg-background-dark rounded-lg">
+<p class="text-sm text-text-light/70 dark:text-text-dark/70">Bu Ayki Toplam</p>
+<p class="text-lg font-bold text-secondary">₺5.000</p>
+</div>
+<div class="p-4 bg-background-light dark:bg-background-dark rounded-lg">
+<p class="text-sm text-text-light/70 dark:text-text-dark/70">Ortalama Harcama</p>
+<p class="text-lg font-bold text-text-light dark:text-text-dark">₺4.850</p>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-3">Son İşlemler</h3>
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-medium text-text-light dark:text-text-dark">Ağustos Kirası</span>
+<span class="text-sm text-text-light/70 dark:text-text-dark/70">1 Ağustos 2024</span>
+</div>
+<span class="font-semibold text-secondary">-₺5.000</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-medium text-text-light dark:text-text-dark">Temmuz Kirası</span>
+<span class="text-sm text-text-light/70 dark:text-text-dark/70">1 Temmuz 2024</span>
+</div>
+<span class="font-semibold text-secondary">-₺4.800</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-medium text-text-light dark:text-text-dark">Haziran Kirası</span>
+<span class="text-sm text-text-light/70 dark:text-text-dark/70">1 Haziran 2024</span>
+</div>
+<span class="font-semibold text-secondary">-₺4.750</span>
+</div>
+</div>
+</div>
+<a class="w-full text-center bg-accent text-white py-3 rounded-lg font-semibold" href="#">Tümünü Gör</a>
+</div>
+</div>
+</div>
+<div class="modal-overlay fixed inset-0 z-50 flex items-end justify-center bg-black/60" id="category-details-bills">
+<a class="absolute inset-0" href="#"></a>
+<div class="modal-sheet relative w-full max-w-md bg-card-light dark:bg-card-dark rounded-t-xl">
+<div class="sticky top-0 bg-card-light dark:bg-card-dark pt-4 px-4 z-10">
+<div class="w-12 h-1.5 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-4"></div>
+<div class="flex items-center justify-between pb-4">
+<h2 class="text-xl font-bold text-text-light dark:text-text-dark">Fatura Detayları</h2>
+<a class="text-text-light dark:text-text-dark" href="#"><span class="material-symbols-outlined">close</span></a>
+</div>
+</div>
+<div class="p-4"><p class="text-center text-text-light dark:text-text-dark">Fatura detayları burada gösterilecek.</p></div>
+</div>
+</div>
+<div class="modal-overlay fixed inset-0 z-50 flex items-end justify-center bg-black/60" id="category-details-market">
+<a class="absolute inset-0" href="#"></a>
+<div class="modal-sheet relative w-full max-w-md bg-card-light dark:bg-card-dark rounded-t-xl">
+<div class="sticky top-0 bg-card-light dark:bg-card-dark pt-4 px-4 z-10">
+<div class="w-12 h-1.5 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-4"></div>
+<div class="flex items-center justify-between pb-4">
+<h2 class="text-xl font-bold text-text-light dark:text-text-dark">Market Detayları</h2>
+<a class="text-text-light dark:text-text-dark" href="#"><span class="material-symbols-outlined">close</span></a>
+</div>
+</div>
+<div class="p-4"><p class="text-center text-text-light dark:text-text-dark">Market harcaması detayları burada gösterilecek.</p></div>
+</div>
+</div>
+
+</body></html>

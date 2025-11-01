@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Raporlar Ekranı</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#34C759", // Using green from the user request
+              "background-light": "#F5F5F7",
+              "background-dark": "#102216",
+              "income": "#34C759",
+              "expense": "#FF3B30",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="flex items-center p-4 pb-2 justify-between sticky top-0 z-10 bg-background-light dark:bg-background-dark">
+<button aria-label="Geri" class="text-slate-800 dark:text-white flex size-12 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Raporlar</h1>
+</header>
+<!-- Segmented Buttons (Time Period Selector) -->
+<div class="flex px-4 py-3">
+<div class="flex h-10 flex-1 items-center justify-center rounded-xl bg-slate-200 dark:bg-slate-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-900 has-[:checked]:shadow-sm has-[:checked]:text-slate-900 dark:has-[:checked]:text-white text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal transition-all">
+<span class="truncate">Haftalık</span>
+<input class="invisible w-0" name="period-selector" type="radio" value="Haftalık"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-900 has-[:checked]:shadow-sm has-[:checked]:text-slate-900 dark:has-[:checked]:text-white text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal transition-all">
+<span class="truncate">Aylık</span>
+<input checked="" class="invisible w-0" name="period-selector" type="radio" value="Aylık"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-900 has-[:checked]:shadow-sm has-[:checked]:text-slate-900 dark:has-[:checked]:text-white text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal transition-all">
+<span class="truncate">Yıllık</span>
+<input class="invisible w-0" name="period-selector" type="radio" value="Yıllık"/>
+</label>
+</div>
+</div>
+<!-- Stats (Summary Cards) -->
+<div class="flex flex-col gap-4 p-4">
+<div class="flex min-w-[158px] flex-1 flex-col gap-1.5 rounded-xl bg-white dark:bg-slate-900 p-4 shadow-sm">
+<p class="text-sm font-medium leading-normal text-slate-500 dark:text-slate-400">Toplam Gelir</p>
+<p class="text-income tracking-light text-2xl font-bold leading-tight">₺12,500.00</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-1.5 rounded-xl bg-white dark:bg-slate-900 p-4 shadow-sm">
+<p class="text-sm font-medium leading-normal text-slate-500 dark:text-slate-400">Toplam Gider</p>
+<p class="text-expense tracking-light text-2xl font-bold leading-tight">₺7,850.50</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-1.5 rounded-xl bg-white dark:bg-slate-900 p-4 shadow-sm">
+<p class="text-sm font-medium leading-normal text-slate-500 dark:text-slate-400">Net Durum</p>
+<p class="text-slate-800 dark:text-white tracking-light text-2xl font-bold leading-tight">₺4,649.50</p>
+</div>
+</div>
+<!-- Section Header: Chart -->
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Aylık Gider Dağılımı</h2>
+<!-- Chart Area (Pie Chart) -->
+<div class="p-4">
+<div class="relative flex items-center justify-center rounded-xl bg-white dark:bg-slate-900 p-6 shadow-sm">
+<img alt="A pie chart showing expense distribution across different categories like rent, food, and transport." class="h-48 w-48 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv5Dq7qmj-gbuxFN1vt1byPwnb-43hFzo7ThFOSFree53_SWqEtL8cEq2LRFrlNdfbjFSyrvQET0PtbRGsm1oHpYpG_kdZ7LLuWVaonR_iO6EJQlZhI0VrkU8QEaQDYNNH-mXNM6XSqVKUsKTlgFEKTZVkowOZnKzt5hD_FBxTYwEzgzdjLYv6kfMUWnrOoArn36CvLfKaIOcZTDWQhI1erzMl1YepvjEEhcVvhmpmAIzDE32pySujPpt743vv8QeYNk11aYTvwMk7"/>
+<div class="absolute flex flex-col items-center justify-center">
+<p class="text-xs text-slate-500 dark:text-slate-400">Toplam Gider</p>
+<p class="text-xl font-bold text-slate-800 dark:text-white">₺7,850</p>
+</div>
+</div>
+</div>
+<!-- Section Header: Categories -->
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Kategoriler</h2>
+<!-- Chips (Category Filters) -->
+<div class="flex gap-2 p-4 pt-2 overflow-x-auto scrollbar-hide">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/20 dark:bg-primary/30 px-4"><p class="text-primary text-sm font-medium leading-normal">Tümü</p></button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 px-4"><p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Yatırımlar</p></button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 px-4"><p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Emeklilik</p></button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 px-4"><p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Eğitim</p></button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 px-4"><p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Sabit Giderler</p></button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 px-4"><p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Maaş</p></button>
+</div>
+<!-- Section Header: Detailed List -->
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Kategori Detayları</h2>
+<!-- Detailed List Items -->
+<div class="flex flex-col gap-2 px-4 pb-24">
+<div class="flex items-center gap-4 rounded-xl bg-white dark:bg-slate-900 p-4 shadow-sm">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-100 dark:bg-red-900/40">
+<span class="material-symbols-outlined text-red-500 dark:text-red-400">school</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-slate-800 dark:text-slate-200">Eğitim Giderleri</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">3 işlem</p>
+</div>
+<p class="font-bold text-expense">₺1,250.00</p>
+</div>
+<div class="flex items-center gap-4 rounded-xl bg-white dark:bg-slate-900 p-4 shadow-sm">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/40">
+<span class="material-symbols-outlined text-blue-500 dark:text-blue-400">receipt_long</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-slate-800 dark:text-slate-200">Sabit Giderler</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">5 işlem</p>
+</div>
+<p class="font-bold text-expense">₺3,500.50</p>
+</div>
+<div class="flex items-center gap-4 rounded-xl bg-white dark:bg-slate-900 p-4 shadow-sm">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/40">
+<span class="material-symbols-outlined text-green-500 dark:text-green-400">payments</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-slate-800 dark:text-slate-200">Maaş Geliri</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">1 işlem</p>
+</div>
+<p class="font-bold text-income">₺10,000.00</p>
+</div>
+<div class="flex items-center gap-4 rounded-xl bg-white dark:bg-slate-900 p-4 shadow-sm">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900/40">
+<span class="material-symbols-outlined text-purple-500 dark:text-purple-400">trending_up</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-slate-800 dark:text-slate-200">Yatırımlar</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">2 işlem</p>
+</div>
+<p class="font-bold text-income">₺2,500.00</p>
+</div>
+</div>
+<!-- Floating Action Button (FAB) -->
+<button aria-label="Raporu indir" class="fixed bottom-6 right-6 flex h-14 w-14 items-center justify-center rounded-full bg-primary shadow-lg">
+<span class="material-symbols-outlined text-white" style="font-size: 28px;">download</span>
+</button>
+</div>
+</body></html>

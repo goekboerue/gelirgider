@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kategorileri Yönet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#50E3C2",
+              "background-light": "#F4F4F8",
+              "background-dark": "#102216",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col dark group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-white/10">
+<div class="flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-zinc-900 dark:text-white">arrow_back</span>
+</div>
+<h1 class="text-zinc-900 dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">Kategorileri Yönet</h1>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-zinc-900 dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+<!-- Segmented Buttons -->
+<div class="flex px-4 py-3">
+<div class="flex h-12 flex-1 items-center justify-center rounded-lg bg-zinc-200 dark:bg-zinc-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-2 has-[:checked]:bg-primary has-[:checked]:shadow-lg has-[:checked]:text-zinc-900 text-zinc-600 dark:text-zinc-400 text-sm font-semibold leading-normal transition-colors duration-200">
+<span class="truncate">Giderler</span>
+<input checked="" class="invisible w-0" name="category-type" type="radio" value="Giderler"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-2 has-[:checked]:bg-primary has-[:checked]:shadow-lg has-[:checked]:text-zinc-900 text-zinc-600 dark:text-zinc-400 text-sm font-semibold leading-normal transition-colors duration-200">
+<span class="truncate">Gelirler</span>
+<input class="invisible w-0" name="category-type" type="radio" value="Gelirler"/>
+</label>
+</div>
+</div>
+<!-- Category List -->
+<div class="flex flex-col gap-2 px-4 pb-28">
+<!-- ListItem 1 -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-14 justify-between border-b border-zinc-200 dark:border-zinc-800 py-2">
+<div class="flex items-center gap-4 flex-1">
+<div class="text-zinc-900 dark:text-white flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">receipt_long</span>
+</div>
+<p class="text-zinc-900 dark:text-white text-base font-normal leading-normal flex-1 truncate">Fatura</p>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<span class="material-symbols-outlined text-zinc-500 dark:text-zinc-400">drag_handle</span>
+</div>
+</div>
+<!-- ListItem 2 -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-14 justify-between border-b border-zinc-200 dark:border-zinc-800 py-2">
+<div class="flex items-center gap-4 flex-1">
+<div class="text-zinc-900 dark:text-white flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">shopping_cart</span>
+</div>
+<p class="text-zinc-900 dark:text-white text-base font-normal leading-normal flex-1 truncate">Market</p>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<span class="material-symbols-outlined text-zinc-500 dark:text-zinc-400">drag_handle</span>
+</div>
+</div>
+<!-- ListItem 3 -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-14 justify-between border-b border-zinc-200 dark:border-zinc-800 py-2">
+<div class="flex items-center gap-4 flex-1">
+<div class="text-zinc-900 dark:text-white flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">directions_bus</span>
+</div>
+<p class="text-zinc-900 dark:text-white text-base font-normal leading-normal flex-1 truncate">Ulaşım</p>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<span class="material-symbols-outlined text-zinc-500 dark:text-zinc-400">drag_handle</span>
+</div>
+</div>
+<!-- ListItem 4 -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-14 justify-between border-b border-zinc-200 dark:border-zinc-800 py-2">
+<div class="flex items-center gap-4 flex-1">
+<div class="text-zinc-900 dark:text-white flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">restaurant</span>
+</div>
+<p class="text-zinc-900 dark:text-white text-base font-normal leading-normal flex-1 truncate">Yemek</p>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<span class="material-symbols-outlined text-zinc-500 dark:text-zinc-400">drag_handle</span>
+</div>
+</div>
+<!-- ListItem 5 -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-14 justify-between border-b border-zinc-200 dark:border-zinc-800 py-2">
+<div class="flex items-center gap-4 flex-1">
+<div class="text-zinc-900 dark:text-white flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">home</span>
+</div>
+<p class="text-zinc-900 dark:text-white text-base font-normal leading-normal flex-1 truncate">Kira</p>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<span class="material-symbols-outlined text-zinc-500 dark:text-zinc-400">drag_handle</span>
+</div>
+</div>
+</div>
+<!-- Floating Action Button -->
+<div class="absolute bottom-6 right-6">
+<button class="flex items-center justify-center w-16 h-16 bg-primary rounded-full shadow-lg text-zinc-900">
+<span class="material-symbols-outlined text-4xl">add</span>
+</button>
+</div>
+</div>
+</body></html>
